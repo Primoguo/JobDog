@@ -33,7 +33,7 @@ class PersistenceService {
         }
 
         // 3. 原子替换
-        try fileManager.replaceItem(at: saveURL, withItemAt: tmpURL)
+        try fileManager.replaceItem(at: saveURL, withItemAt: tmpURL, backupItemName: nil, resultingItemURL: nil)
     }
 
     /// 加载存档（优先主文件，失败尝试备份）
