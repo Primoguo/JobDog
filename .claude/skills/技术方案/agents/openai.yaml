@@ -1,0 +1,4 @@
+interface:
+  display_name: "技术方案蓝图"
+  short_description: "技术方案生成、架构选型、容量评估与风险降级文档助手"
+  default_prompt: "使用 $technical-solution-blueprint 为一个业务目标生成中文、可评审、可落地的技术方案。"
