@@ -66,7 +66,8 @@ enum SceneData {
                 InteractiveProp(id: "snooze", type: .rest, emoji: "⏰", position: .init(x: 3, y: 1), effect: ["energy": 5, "mood": -2], cost: 0, label: "再睡5分钟")
             ],
             attributeEffects: ["energy": -1, "mood": -1],
-            weatherCondition: nil
+            weatherCondition: nil,
+            dogPosition: .init(x: 1, y: 2)  // 在床上
         ),
         // 上午
         SceneVariant(
@@ -88,7 +89,8 @@ enum SceneData {
                 InteractiveProp(id: "coffee", type: .drink, emoji: "☕", position: .init(x: 4, y: 2), effect: ["energy": 8, "mood": 3], cost: 15, label: "喝杯咖啡")
             ],
             attributeEffects: ["mood": -1, "energy": -3, "fullness": -2],
-            weatherCondition: nil
+            weatherCondition: nil,
+            dogPosition: .init(x: 2, y: 3)  // 在办公桌前
         ),
         // 中午
         SceneVariant(
@@ -109,7 +111,8 @@ enum SceneData {
                 InteractiveProp(id: "lunch", type: .feed, emoji: "🍱", position: .init(x: 2, y: 2), effect: ["fullness": 25, "mood": 5], cost: 20, label: "吃午饭")
             ],
             attributeEffects: ["fullness": 10, "mood": 2, "energy": 3],
-            weatherCondition: nil
+            weatherCondition: nil,
+            dogPosition: .init(x: 3, y: 3)  // 在餐桌旁
         ),
         // 下午
         SceneVariant(
@@ -130,7 +133,8 @@ enum SceneData {
                 InteractiveProp(id: "water", type: .drink, emoji: "💧", position: .init(x: 5, y: 2), effect: ["fullness": 3], cost: 0, label: "喝口水")
             ],
             attributeEffects: ["mood": -2, "energy": -4, "fullness": -2],
-            weatherCondition: nil
+            weatherCondition: nil,
+            dogPosition: .init(x: 3, y: 4)  // 会议桌旁
         ),
         // 傍晚
         SceneVariant(
@@ -151,7 +155,8 @@ enum SceneData {
                 InteractiveProp(id: "music", type: .play, emoji: "🎵", position: .init(x: 5, y: 3), effect: ["mood": 5], cost: 0, label: "听音乐")
             ],
             attributeEffects: ["energy": -2, "mood": 1],
-            weatherCondition: nil
+            weatherCondition: nil,
+            dogPosition: .init(x: 3, y: 3)  // 地铁里
         ),
         // 夜晚
         SceneVariant(
@@ -173,7 +178,8 @@ enum SceneData {
                 InteractiveProp(id: "sleep", type: .rest, emoji: "🌙", position: .init(x: 1, y: 1), effect: ["energy": 15, "mood": 3], cost: 0, label: "睡觉")
             ],
             attributeEffects: ["energy": 5, "mood": 2],
-            weatherCondition: nil
+            weatherCondition: nil,
+            dogPosition: .init(x: 2, y: 2)  // 在床上
         ),
     ]
 
@@ -200,7 +206,8 @@ enum SceneData {
                 InteractiveProp(id: "tea", type: .drink, emoji: "🍵", position: .init(x: 4, y: 2), effect: ["mood": 3, "energy": 2], cost: 0, label: "泡杯茶")
             ],
             attributeEffects: ["mood": 2, "energy": -1],
-            weatherCondition: nil
+            weatherCondition: nil,
+            dogPosition: .init(x: 3, y: 3)  // 在笔记本电脑前
         ),
         // 中午
         SceneVariant(
@@ -221,7 +228,8 @@ enum SceneData {
                 InteractiveProp(id: "noodles", type: .feed, emoji: "🍜", position: .init(x: 1, y: 2), effect: ["fullness": 20, "mood": 3], cost: 15, label: "来碗面")
             ],
             attributeEffects: ["fullness": 8, "mood": 2],
-            weatherCondition: nil
+            weatherCondition: nil,
+            dogPosition: .init(x: 2, y: 3)  // 坐在凳子上
         ),
         // 下午晚
         SceneVariant(
@@ -243,7 +251,8 @@ enum SceneData {
                 InteractiveProp(id: "frisbee", type: .play, emoji: "🥏", position: .init(x: 4, y: 4), effect: ["mood": 8, "energy": -5], cost: 0, label: "扔飞盘")
             ],
             attributeEffects: ["mood": 3, "energy": -2, "cleanliness": -2],
-            weatherCondition: nil
+            weatherCondition: nil,
+            dogPosition: .init(x: 3, y: 4)  // 公园草地上
         ),
         // 傍晚
         SceneVariant(
@@ -265,7 +274,8 @@ enum SceneData {
                 InteractiveProp(id: "cook", type: .feed, emoji: "🍳", position: .init(x: 1, y: 1), effect: ["fullness": 25, "mood": 5], cost: 10, label: "做饭吃")
             ],
             attributeEffects: ["mood": 3, "fullness": 5],
-            weatherCondition: nil
+            weatherCondition: nil,
+            dogPosition: .init(x: 2, y: 2)  // 在灶台前
         ),
         // 夜晚
         SceneVariant(
@@ -287,7 +297,8 @@ enum SceneData {
                 InteractiveProp(id: "snack", type: .feed, emoji: "🍿", position: .init(x: 4, y: 3), effect: ["fullness": 5, "mood": 3], cost: 10, label: "吃零食")
             ],
             attributeEffects: ["mood": 3, "energy": -1],
-            weatherCondition: nil
+            weatherCondition: nil,
+            dogPosition: .init(x: 2, y: 3)  // 在沙发上
         ),
     ]
 
@@ -314,7 +325,8 @@ enum SceneData {
                 InteractiveProp(id: "water2", type: .drink, emoji: "💧", position: .init(x: 6, y: 3), effect: ["fullness": 3, "energy": 2], cost: 0, label: "喝口水")
             ],
             attributeEffects: ["energy": -3, "mood": 5, "cleanliness": -3],
-            weatherCondition: nil
+            weatherCondition: nil,
+            dogPosition: .init(x: 4, y: 2)  // 在跑道上
         ),
         // 上午
         SceneVariant(
@@ -336,7 +348,8 @@ enum SceneData {
                 InteractiveProp(id: "notebook", type: .work, emoji: "📝", position: .init(x: 4, y: 2), effect: ["mood": 2], cost: 0, label: "做笔记")
             ],
             attributeEffects: ["mood": -1, "energy": -4, "fullness": -2],
-            weatherCondition: nil
+            weatherCondition: nil,
+            dogPosition: .init(x: 3, y: 3)  // 在书桌前
         ),
         // 中午
         SceneVariant(
@@ -358,7 +371,8 @@ enum SceneData {
                 InteractiveProp(id: "protein", type: .drink, emoji: "🥤", position: .init(x: 6, y: 3), effect: ["fullness": 10, "energy": 5], cost: 20, label: "蛋白粉")
             ],
             attributeEffects: ["energy": -5, "mood": 3, "cleanliness": -5],
-            weatherCondition: nil
+            weatherCondition: nil,
+            dogPosition: .init(x: 2, y: 2)  // 在跑步机旁
         ),
         // 下午
         SceneVariant(
@@ -380,7 +394,8 @@ enum SceneData {
                 InteractiveProp(id: "coffee2", type: .drink, emoji: "☕", position: .init(x: 5, y: 2), effect: ["energy": 5, "mood": 2], cost: 15, label: "喝咖啡")
             ],
             attributeEffects: ["mood": -1, "energy": -4, "fullness": -2],
-            weatherCondition: nil
+            weatherCondition: nil,
+            dogPosition: .init(x: 3, y: 3)  // 在工作台前
         ),
         // 夜晚
         SceneVariant(
@@ -401,7 +416,8 @@ enum SceneData {
                 InteractiveProp(id: "bath", type: .clean, emoji: "🧼", position: .init(x: 1, y: 1), effect: ["cleanliness": 30, "mood": 5], cost: 0, label: "泡澡")
             ],
             attributeEffects: ["cleanliness": 10, "mood": 3, "energy": 2],
-            weatherCondition: nil
+            weatherCondition: nil,
+            dogPosition: .init(x: 2, y: 2)  // 在浴缸旁
         ),
     ]
 }

@@ -35,6 +35,26 @@ struct SceneVariant: Codable, Identifiable {
     let interactiveProps: [InteractiveProp]
     let attributeEffects: [String: Int]
     let weatherCondition: Weather?  // nil = 任意天气可用
+    let dogPosition: GridPosition?  // nil = 使用默认位置（网格中心）
+
+    /// 解析狗狗位置：优先使用指定位置，否则使用网格中心
+    func resolvedDogPosition() -> GridPosition {
+        dogPosition ?? GridPosition(x: layout.gridSize.width / 2, y: layout.gridSize.height / 2)
+    }
+
+    /// 兼容旧代码的便捷初始化器（dogPosition 默认 nil）
+    init(id: String, timeSlot: TimeSlot, layout: SceneLayout, dogAction: String,
+         interactiveProps: [InteractiveProp], attributeEffects: [String: Int],
+         weatherCondition: Weather?, dogPosition: GridPosition? = nil) {
+        self.id = id
+        self.timeSlot = timeSlot
+        self.layout = layout
+        self.dogAction = dogAction
+        self.interactiveProps = interactiveProps
+        self.attributeEffects = attributeEffects
+        self.weatherCondition = weatherCondition
+        self.dogPosition = dogPosition
+    }
 
     /// 显示用的位置描述
     var locationText: String { layout.location }

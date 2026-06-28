@@ -53,6 +53,42 @@ enum Breed: String, Codable, CaseIterable, Identifiable {
         }
     }
 
+    /// 身体主色（hex）
+    var bodyColor: String {
+        switch self {
+        case .shiba: "D4A55A"       // 柴色
+        case .corgi: "D4915A"       // 棕白
+        case .bichon: "F5F0E8"      // 奶白
+        case .pomeranian: "E8943A"  // 橘色
+        case .borderCollie: "2C2C2C" // 黑（带白）
+        case .husky: "B0B8C0"       // 银灰
+        case .samoyed: "FAFAFA"     // 纯白
+        case .frenchBulldog: "A09080" // 灰棕
+        case .goldenRetriever: "C8943C" // 金色
+        case .labrador: "C89040"    // 浅棕
+        case .germanShepherd: "8B6B3A" // 棕黑
+        case .alaskan: "707880"     // 深灰
+        }
+    }
+
+    /// 耳朵/深色区域（hex）
+    var accentColor: String {
+        switch self {
+        case .shiba: "B07830"
+        case .corgi: "B07030"
+        case .bichon: "E8DDD0"
+        case .pomeranian: "C07020"
+        case .borderCollie: "1A1A1A"
+        case .husky: "808890"
+        case .samoyed: "E8E8E8"
+        case .frenchBulldog: "807060"
+        case .goldenRetriever: "A07828"
+        case .labrador: "A07030"
+        case .germanShepherd: "5A4020"
+        case .alaskan: "505860"
+        }
+    }
+
     /// 品种简介
     var description: String {
         switch self {
