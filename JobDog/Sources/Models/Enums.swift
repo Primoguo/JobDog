@@ -53,6 +53,24 @@ enum Breed: String, Codable, CaseIterable, Identifiable {
         }
     }
 
+    /// 品种简介
+    var description: String {
+        switch self {
+        case .shiba: "忠诚独立，表情丰富"
+        case .corgi: "短腿萌神，精力充沛"
+        case .bichon: "活泼粘人，不掉毛"
+        case .pomeranian: "小巧灵动，爱撒娇"
+        case .borderCollie: "智商天花板，工作狂"
+        case .husky: "拆家能手，话痨一枚"
+        case .samoyed: "微笑天使，怕热不怕冷"
+        case .frenchBulldog: "安静慵懒，适合公寓"
+        case .goldenRetriever: "暖男本男，人见人爱"
+        case .labrador: "贪吃好动，超级亲人"
+        case .germanShepherd: "勇敢忠诚，全能选手"
+        case .alaskan: "外表霸气，内心温柔"
+        }
+    }
+
     enum SizeCategory: String, Codable {
         case small, medium, large
     }
