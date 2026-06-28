@@ -153,6 +153,28 @@ enum SceneData {
             attributeEffects: ["energy": -2, "mood": 1],
             weatherCondition: nil
         ),
+        // 夜晚
+        SceneVariant(
+            id: "O-NI-1",
+            timeSlot: .night,
+            layout: SceneLayout(
+                location: "卧室",
+                furniture: [
+                    FurnitureItem(id: "bed2", name: "床", emoji: "🛏️", position: .init(x: 1, y: 1), size: .init(width: 2, height: 3), color: "9B8878"),
+                    FurnitureItem(id: "lamp2", name: "床头灯", emoji: "💡", position: .init(x: 3, y: 1), size: .init(width: 1, height: 1), color: "FFE0A0"),
+                    FurnitureItem(id: "phone2", name: "手机", emoji: "📱", position: .init(x: 3, y: 3), size: .init(width: 1, height: 1), color: "303030")
+                ],
+                floorColor: "C8B090",
+                wallColor: "D8C8B0",
+                gridSize: .init(width: 6, height: 5)
+            ),
+            dogAction: "躺在床上刷手机，准备入睡",
+            interactiveProps: [
+                InteractiveProp(id: "sleep", type: .rest, emoji: "🌙", position: .init(x: 1, y: 1), effect: ["energy": 15, "mood": 3], cost: 0, label: "睡觉")
+            ],
+            attributeEffects: ["energy": 5, "mood": 2],
+            weatherCondition: nil
+        ),
     ]
 
     // MARK: - 自由人变体（首批）

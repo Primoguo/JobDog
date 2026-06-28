@@ -12,6 +12,9 @@ class TimeService {
     /// 时段变化回调
     var onTimeSlotChanged: ((TimeSlot) -> Void)?
 
+    /// 定时器 tick 回调（每 30 分钟触发）
+    var onTick: (() -> Void)?
+
     init() {
         let hour = Calendar.current.component(.hour, from: Date())
         self.currentHour = hour
@@ -66,7 +69,7 @@ class TimeService {
         // 每 30 分钟触发一次
         timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(AppConfig.tickIntervalMinutes * 60), repeats: true) { [weak self] _ in
             guard let self else { return }
-            // 定时器触发时，外部 GameStore 应调用 onTick()
+            self.onTick?()
         }
     }
 

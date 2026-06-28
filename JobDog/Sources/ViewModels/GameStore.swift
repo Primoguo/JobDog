@@ -58,6 +58,9 @@ class GameStore {
         saveData = data
         isOnboarding = false
 
+        // 注册定时器回调
+        timeService.onTick = { [weak self] in self?.onTick() }
+
         // 初始化场景
         timeService.onAppLaunch(mode: dog.lifeMode)
         updateScene()
@@ -68,6 +71,10 @@ class GameStore {
 
     func onAppLaunch() {
         guard let dog = saveData?.dog else { return }
+
+        // 注册定时器回调
+        timeService.onTick = { [weak self] in self?.onTick() }
+
         timeService.onAppLaunch(mode: dog.lifeMode)
 
         // 计算离线期间的属性衰减
