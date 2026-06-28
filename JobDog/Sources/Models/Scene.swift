@@ -1,5 +1,12 @@
 import Foundation
 
+// MARK: - 网格尺寸（顶层类型，供 SceneLayout / FurnitureItem / SceneCanvasView 共用）
+
+struct GridSize: Codable {
+    let width: Int
+    let height: Int
+}
+
 // MARK: - 场景状态
 
 struct SceneState: Codable {
@@ -41,11 +48,6 @@ struct SceneLayout: Codable {
     let floorColor: String        // hex 色值
     let wallColor: String?        // hex 色值（nil = 无墙壁，户外场景）
     let gridSize: GridSize        // 网格大小
-
-    struct GridSize: Codable {
-        let width: Int
-        let height: Int
-    }
 }
 
 // MARK: - 家具/物件
@@ -57,11 +59,6 @@ struct FurnitureItem: Codable, Identifiable {
     let position: GridPosition
     let size: GridSize
     let color: String             // hex 色值
-
-    struct GridSize: Codable {
-        let width: Int
-        let height: Int
-    }
 }
 
 // MARK: - 网格坐标

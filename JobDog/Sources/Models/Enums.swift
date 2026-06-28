@@ -79,9 +79,6 @@ enum LifeMode: String, Codable, CaseIterable, Identifiable {
     /// 中文显示名
     var displayName: String { rawValue }
 
-    /// 中文显示名
-    var displayName: String { rawValue }
-
     /// 用于 UI 展示的 emoji
     var emoji: String {
         switch self {
