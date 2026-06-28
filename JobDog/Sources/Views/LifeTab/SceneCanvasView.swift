@@ -34,15 +34,17 @@ struct SceneCanvasView: View {
         }
 
         // 3. 收集所有需要绘制的物件，按 y 排序（实现遮挡关系）
-        var drawables: [(y: CGFloat, draw: () -> Void)] = []
+        enum Drawable {
+            case furniture(FurnitureItem)
+            case dog
+        }
+        var drawables: [(y: CGFloat, kind: Drawable)] = []
 
         for furniture in layout.furniture {
             let pos = IsometricHelpers.cartesianToIsometric(
                 x: furniture.position.x, y: furniture.position.y, origin: origin
             )
-            drawables.append((y: pos.y, draw: { [self] in
-                drawFurniture(context: &context, origin: origin, furniture: furniture)
-            }))
+            drawables.append((y: pos.y, kind: .furniture(furniture)))
         }
 
         // 狗狗
@@ -50,14 +52,17 @@ struct SceneCanvasView: View {
         let dogScreenPos = IsometricHelpers.cartesianToIsometric(
             x: dogGrid.x, y: dogGrid.y, origin: origin
         )
-        drawables.append((y: dogScreenPos.y, draw: { [self] in
-            drawDog(context: &context, origin: origin, dogGridPos: dogGrid)
-        }))
+        drawables.append((y: dogScreenPos.y, kind: .dog))
 
         // 按 y 排序后绘制
         drawables.sort { $0.y < $1.y }
         for item in drawables {
-            item.draw()
+            switch item.kind {
+            case .furniture(let furniture):
+                drawFurniture(context: &context, origin: origin, furniture: furniture)
+            case .dog:
+                drawDog(context: &context, origin: origin, dogGridPos: dogGrid)
+            }
         }
 
         // 4. 绘制可交互道具（始终在最上层）
